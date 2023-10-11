@@ -34,7 +34,7 @@ func PackNumber(amount int) map[int]int {
 		sumInLast := m[packsArray[len(packsArray)-1]] * packsArray[len(packsArray)-1]
 		if sumInLast <= packsArray[len(packsArray)-2] {
 			m[packsArray[len(packsArray)-2]]++
-			m[packsArray[len(packsArray)-1]] = 0
+			delete(m, packsArray[len(packsArray)-1])
 		}
 	}
 
