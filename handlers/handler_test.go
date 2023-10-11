@@ -82,7 +82,7 @@ func TestAPI_AmountWithAdjustedPacks(t *testing.T) {
 			urlAmount:          "/amount",
 			urlPacks:           "/packs",
 			expectedStatusCode: 200,
-			expectedBody:       "map[4:2 13:1]",
+			expectedBody:       "map[4:0 13:2]",
 			amount:             "20",
 			packs:              "13,4",
 		},

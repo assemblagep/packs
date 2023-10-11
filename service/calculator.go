@@ -29,6 +29,15 @@ func PackNumber(amount int) map[int]int {
 		m[packsArray[len(packsArray)-1]]++
 	}
 
+	//rearrange 2 last packs
+	if len(packsArray) > 1 && m[packsArray[len(packsArray)-1]] > 1 {
+		sumInLast := m[packsArray[len(packsArray)-1]] * packsArray[len(packsArray)-1]
+		if sumInLast <= packsArray[len(packsArray)-2] {
+			m[packsArray[len(packsArray)-2]]++
+			m[packsArray[len(packsArray)-1]] = 0
+		}
+	}
+
 	return m
 }
 
