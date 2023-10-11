@@ -8,7 +8,7 @@ import (
 	"strings"
 )
 
-// Amount handler
+// Amount handler accepts amount as a form parameter and returns result map[pack1:amount1 pack2:amount2 ...]
 func Amount(w http.ResponseWriter, r *http.Request) {
 	r.ParseForm()
 	strAmount := r.Form.Get("amount")
@@ -24,7 +24,7 @@ func Amount(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprint(w, packs)
 }
 
-// Packs handler
+// Packs handler accept packs array as a form parameter and returns 200 if no errors
 func Packs(w http.ResponseWriter, r *http.Request) {
 	r.ParseForm()
 	strPacks := r.Form.Get("packs")

@@ -5,14 +5,17 @@ import (
 	"strconv"
 )
 
-var packsArray = []int{5000, 2000, 1000, 500, 250} //default
+// packsArray is default sorted list of available packs
+var packsArray = []int{5000, 2000, 1000, 500, 250}
 
+// PackNumber return result map of packs and amounts
 func PackNumber(amount int) map[int]int {
 	m := make(map[int]int)
 	if amount <= 0 || len(packsArray) == 0 {
 		return m
 	}
 
+	// go through packsArray from biggest pack
 	for _, pack := range packsArray {
 		resOfDivision := amount / pack
 		if resOfDivision > 0 {
@@ -21,6 +24,7 @@ func PackNumber(amount int) map[int]int {
 		}
 	}
 
+	// add 1 more pack if there is some amount less than min pack
 	if amount > 0 {
 		m[packsArray[len(packsArray)-1]]++
 	}
@@ -28,6 +32,7 @@ func PackNumber(amount int) map[int]int {
 	return m
 }
 
+// Packs accept string array of available packs, sort them in descending order and redefine packsArray
 func Packs(in []string) error {
 	packsArray = make([]int, len(in))
 
