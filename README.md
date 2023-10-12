@@ -10,7 +10,7 @@ go run .
 
 Send request
 ```
-curl -d packs=1,500,1000,250,2000 "localhost:8081/amount"
+curl -d packs=1,500,1000,250,2000 "localhost:8081/packs"
 curl -d amount=1001 "localhost:8081/amount"
 ```
 
